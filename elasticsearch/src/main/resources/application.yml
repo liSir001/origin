@@ -1,0 +1,18 @@
+server:
+  port: 10005
+  servlet:
+    context-path: /es
+spring:
+  data:
+    elasticsearch:
+      # 默认 elasticsearch
+      cluster-name: elasticsearch
+      # 9200作为Http协议，主要用于外部通讯
+      # 9300作为Tcp协议，jar之间就是通过tcp协议通讯
+      cluster-nodes: 192.168.215.135:9300
+      repositories:
+        enabled: true
+  jackson:
+    time-zone: GMT+08:00
+    date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: non_null

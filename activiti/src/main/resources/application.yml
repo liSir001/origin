@@ -1,0 +1,45 @@
+server:
+  port: 10004
+  servlet:
+    context-path: /activiti
+spring:
+  # mysql
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///activiti?useSSL=false
+    username: root
+    password: 1234
+  # activiti
+  activiti:
+    database-schema-update: false
+    db-identity-used: true
+    check-process-definitions: false
+
+  # jpa
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      use-new-id-generator-mappings: false
+  # kafka
+#  kafka:
+#    bootstrap-servers: 127.0.0.1:9092  # 指定kafka主机名和端口号
+#    producer:
+#      acks: -1  # ack
+#      retries: 0 # 失败重试次数
+#      batch-size: 16384  # 每次批量发送消息的数量
+#      buffer-memory: 33554432  # 发送缓冲区内存大小
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer   # 指定消息key和消息体的编解码方式
+#      value-serializer: com.niwodai.util.ObjectOutputSerializer
+#    consumer:
+#      group-id: test-consumer-group  # 指定默认消费者group id
+#      auto-offset-reset: earliest    # 从最早开始消费
+#      enable-auto-commit: true       # 开启offset自动提交
+#      auto-commit-interval: 1000     # 自动提交时间间隔
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer  # 指定消息key和消息体的编解码方式
+#      value-deserializer: com.niwodai.util.ObjectInputSerializer
+
+# 日志级别
+debug: true

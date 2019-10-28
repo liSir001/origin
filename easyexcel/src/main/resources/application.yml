@@ -1,0 +1,17 @@
+server:
+  port: 10002
+  servlet:
+    context-path: /easyexcel
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///jdbc_db?useSSL=false
+    username: root
+    password: 1234
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      use-new-id-generator-mappings: false

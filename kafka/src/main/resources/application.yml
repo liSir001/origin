@@ -1,0 +1,26 @@
+server:
+  port: 10005
+  servlet:
+    context-path: /kafka
+spring:
+  kafka:
+#    bootstrap-servers: 192.168.215.139:9092,192.168.215.137:9092,192.168.215.138:9092  # 指定kafka主机名和端口号
+    bootstrap-servers: niwodai1:9092,niwodai2:9092,niwodai3:9092  # 指定kafka主机名和端口号
+    listener:
+      ack-mode: manual
+    producer:
+      acks: -1  # ack
+      retries: 0 # 失败重试次数
+      batch-size: 16384  # 每次批量发送消息的数量
+      buffer-memory: 33554432  # 发送缓冲区内存大小
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer   # 指定消息key和消息体的编解码方式
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: test-kafka          # 指定默认消费者group id
+      auto-offset-reset: latest    # 从最新开始消费
+      enable-auto-commit: false     # 关闭offset自动提交
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer  # 指定消息key和消息体的编解码方式
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+kafka:
+  app:
+    topic: test-kafka  # 指定topic

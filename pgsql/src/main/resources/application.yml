@@ -1,0 +1,20 @@
+server:
+  port: 10003
+  servlet:
+    context-path: /pgsql
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/test
+    username: postgres
+    password: admin
+  jpa:
+    database: PostgreSQL
+    properties:
+      hibernate:
+        ddl-auto: validate
+        temp.use_jdbc_metadata_defaults: false
+        use-new-id-generator-mappings: false
+  jackson:
+    time-zone: GMT+08:00
+    date-format: yyyy-MM-dd HH:mm:ss
