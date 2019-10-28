@@ -5,6 +5,7 @@ import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.metadata.Sheet;
 import com.lisir.cn.entity.User;
 import com.lisir.cn.service.UserServiceImpl;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -21,6 +22,7 @@ public class EasyExcelApplicationTest {
     private final static UserServiceImpl USER_SERVICE_IMPL = new UserServiceImpl();
 
     @Test
+    @Ignore
     public void contextLoads(){
         // 文件输出路径
         OutputStream outputStream = null;
